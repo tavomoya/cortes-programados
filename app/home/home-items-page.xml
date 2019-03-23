@@ -1,0 +1,23 @@
+<!--
+This is the page that is presented in the 'Home' tab.
+Feel free to customize layouts and components to change how the tab view looks.
+-->
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Home"></Label>
+    </ActionBar>
+
+    <ListView items="{{ outages }}" itemTap="onItemTap" class="list-group">
+        <ListView.itemTemplate>
+            <GridLayout class="list-group-item" rows="auto, *" columns="80, *">
+                <Image row="0" col="0" src="http://www.edesur.com.do/wp-content/uploads/2016/09/es-site-logo-no-text.png" class="thumb img-circle" rowSpan="2"></Image>
+                <Label row="0" col="1" text="{{ province }}" class="list-group-item-heading"></Label>
+                <Label row="1" col="1" text="{{ company }}" class="list-group-item-text"></Label>
+            </GridLayout>
+        </ListView.itemTemplate>
+    </ListView>
+</Page>
