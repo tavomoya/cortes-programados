@@ -19,13 +19,17 @@ export class HomeViewModel extends Observable {
 	private getOutages() {
 		const today = new Date();
 		console.log('dejame verte: ', JSON.stringify({
-			date: DateFormatter.ISOStringWithoutTimeZone(today)
+			date: {
+				"$eq": DateFormatter.ISOStringWithoutTimeZone(today)
+			}
 		}));
 		http.request({
 			method: 'POST',
 			url: 'https://cortes-programados-api.herokuapp.com/outage/filter',
 			content: JSON.stringify({
-				date: DateFormatter.ISOStringWithoutTimeZone(today)
+				date: {
+					"$eq": DateFormatter.ISOStringWithoutTimeZone(today)
+				}
 			})
 		})
 			.then((response: any) => {
